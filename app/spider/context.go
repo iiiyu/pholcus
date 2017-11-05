@@ -11,7 +11,6 @@ import (
 	"sync"
 	"time"
 	"unsafe"
-
 	"golang.org/x/net/html/charset"
 
 	"github.com/henrylee2cn/pholcus/app/downloader/request"
@@ -661,6 +660,45 @@ func (self *Context) initText() {
 	}
 
 }
+
+// func (self *Context) MarkdownOutput(content string, nameOrExt ...string) {
+// 	// 读取完整文件流
+// 	// bytes, err := ioutil.ReadAll(self.Response.Body)
+// 	// self.Response.Body.Close()
+// 	// if err != nil {
+// 	// 	panic(err.Error())
+// 	// 	return
+// 	// }
+// 	bytes := []byte(content)
+
+// 	// 智能设置完整文件名
+// 	_, s := path.Split(self.GetUrl())
+// 	n := strings.Split(s, "?")[0]
+
+// 	var baseName, ext string
+
+// 	if len(nameOrExt) > 0 {
+// 		p, n := path.Split(nameOrExt[0])
+// 		ext = path.Ext(n)
+// 		if baseName2 := strings.TrimSuffix(n, ext); baseName2 != "" {
+// 			baseName = p + baseName2
+// 		}
+// 	}
+// 	if baseName == "" {
+// 		baseName = strings.TrimSuffix(n, path.Ext(n))
+// 	}
+// 	if ext == "" {
+// 		ext = path.Ext(n)
+// 	}
+// 	if ext == "" {
+// 		ext = ".md"
+// 	}
+
+// 	// 保存到文件临时队列
+// 	self.Lock()
+// 	self.files = append(self.files, data.GetFileCell(self.GetRuleName(), baseName+ext, bytes))
+// 	self.Unlock()
+// }
 
 /**
  * 编码类型参考
